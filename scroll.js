@@ -3,13 +3,13 @@ const { chromium } = require('playwright');
 (async () => {
   const browser = await chromium.launch({ headless: false });
   const context = await browser.newContext({
-    recordVideo: {
-      dir: 'videos/',
-      size: {
-        width: 1280,
-        height: 720
-      }
-    }
+    // recordVideo: {
+    //   dir: 'videos/',
+    //   size: {
+    //     width: 1280,
+    //     height: 720
+    //   }
+    // }
   });
 
   const page = await context.newPage();
