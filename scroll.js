@@ -14,12 +14,13 @@ const { chromium } = require('playwright');
 
   const page = await context.newPage();
 
-  await page.goto(`https://weather.yahoo.co.jp/weather/13/4410/13102.html`);
+  await page.goto(`file://${__dirname}/index.html`);
 
   await page.addStyleTag({ path: 'style.css' });
 
-  const index2days = page.locator('#index2days');
-  await index2days.evaluate((element) => {
+  // .div4 へスクロール
+  const div4 = page.locator('.div4');
+  await div4.evaluate((element) => {
     element.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -28,33 +29,32 @@ const { chromium } = require('playwright');
   });
   await page.waitForTimeout(2000);
 
-  const today = page.locator('#yjw_pinpoint_today');
-  await today.evaluate((element) => {
+  // #input1 へスクロール
+  const input1 = page.locator('#input1');
+  await input1.evaluate((element) => {
     element.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
       inline: 'nearest',
     });
   });
-  await page.waitForTimeout(2000);
-
-  const searchText = page.locator('#searchText');
-  await searchText.evaluate((element) => {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-      inline: 'nearest',
-    });
-  });
-  await searchText.click();
-  
+  await input1.click();
   // css のアニメーション待ち
   await page.waitForTimeout(1500);
-
-  await searchText.type('文字入力のテスト', { delay: 50 });
+  await input1.type('文字入力のテスト', { delay: 50 });
   await page.waitForTimeout(2000);
 
-  // await context.close();
+  // .div3 へスクロール
+  const div3 = page.locator('.div3');
+  await div3.evaluate((element) => {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
+    });
+  });
+  await page.waitForTimeout(2000);
 
+  await context.close();
   await browser.close();
 })();

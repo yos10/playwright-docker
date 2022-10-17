@@ -10,26 +10,33 @@
 
 <body>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .header {
-      border: 2px solid green;
-      height: 400px;
-      margin-bottom: 1em;
+      border: 2px solid olive;
+      height: 300px;
     }
 
-    .main {
-      border: 2px solid yellowgreen;
-      height: 500px;
-      margin-bottom: 1em;
+    #flexbox {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
     }
 
-    .div1 {
-      border: 2px solid burlywood;
-      height: 500px;
-      margin-bottom: 1em;
+    .div1,
+    .div2,
+    .div3,
+    .div4 {
+      border: 2px solid olive;
+      height: 300px;
     }
 
     .footer {
-      border: 2px solid peru;
+      border: 2px solid olive;
       height: 300px;
     }
 
@@ -39,44 +46,29 @@
       align-items: center;
     }
 
-    #input {
+    .input {
       width: 300px;
       height: 2em;
-      margin-left: 2em;
-      /* transition: outline-offset 300ms ease; */
-    }
-
-    #input:focus {
-      outline: 2px dashed orangered;
-      outline-offset: -6px;
-    }
-
-    #input:focus {
-      animation-name: animation-sample;
-      animation-duration: 1s;
-    }
-
-    @keyframes animation-sample {
-      0% {
-        outline-offset: 30px;
-      }
-
-      100% {
-        outline-offset: -6px;
-      }
     }
 
   </style>
-
-  <header class="header">Header</header>
-  <main class="main">Main</main>
-  <div class="div1">
-    Div1
-    <div class="input-container">
-      <input type="text" name="" id="input">
+  <div id="flexbox">
+    <header class="header">Header</header>
+    <div class="div1">
+      Div1
+      <div class="input-container">
+        <input type="text" name="" id="input1" class="input">
+      </div>
     </div>
+    <div class="div2">Div2</div>
+    <div class="div3">Div3
+      <div class="input-container">
+        <input type="text" name="" id="input3" class="input">
+      </div>
+    </div>
+    <div class="div4">Div4</div>
+    <footer class="footer">Footer</footer>
   </div>
-  <footer class="footer">Footer</footer>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node screenshot.js"
+    "test": "node scroll.js"
   },
   "keywords": [],
   "author": "",
