@@ -3,13 +3,13 @@ const { chromium } = require('playwright');
 (async () => {
   const browser = await chromium.launch({ headless: false });
   const context = await browser.newContext({
-    // recordVideo: {
-    //   dir: 'videos/',
-    //   size: {
-    //     width: 854,
-    //     height: 480
-    //   }
-    // }
+    recordVideo: {
+      dir: 'videos/',
+      size: {
+        width: 1280,
+        height: 720
+      }
+    }
   });
 
   const page = await context.newPage();
@@ -26,7 +26,6 @@ const { chromium } = require('playwright');
       inline: 'nearest',
     });
   });
-  // await index2days.hover();
   await page.waitForTimeout(2000);
 
   const today = page.locator('#yjw_pinpoint_today');
@@ -37,7 +36,6 @@ const { chromium } = require('playwright');
       inline: 'nearest',
     });
   });
-  // await today.hover();
   await page.waitForTimeout(2000);
 
   const searchText = page.locator('#searchText');
@@ -53,5 +51,6 @@ const { chromium } = require('playwright');
   await page.waitForTimeout(2000);
 
   // await context.close();
+
   await browser.close();
 })();
