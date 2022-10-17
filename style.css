@@ -1,4 +1,19 @@
 input:focus {
   outline: 2px dashed orangered;
-  outline-offset: -3px;
+  outline-offset: -4px;
+}
+
+input:focus {
+  animation-name: animation-sample;
+  animation-duration: 1s;
+}
+
+@keyframes animation-sample {
+  0% {
+    outline-offset: 64px;
+  }
+
+  100% {
+    outline-offset: -4px;
+  }
 }

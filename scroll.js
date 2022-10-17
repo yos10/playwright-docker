@@ -47,6 +47,10 @@ const { chromium } = require('playwright');
     });
   });
   await searchText.click();
+  
+  // css のアニメーション待ち
+  await page.waitForTimeout(1500);
+
   await searchText.type('文字入力のテスト', { delay: 50 });
   await page.waitForTimeout(2000);
 
